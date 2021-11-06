@@ -15,9 +15,11 @@ class Snake
 public:
     Snake(float size);
     ~Snake();
+    void setup();
+    void setDirection(Direction dr);
     Direction getDir();
     sf::Vector2f getPos() const;
-    sf::Vector2f setPos(float x1, float y1);
+    void setPos(float x1, float y1);
 private:
     float blockSize;
     std::vector<Segment> snake;

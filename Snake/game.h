@@ -6,6 +6,7 @@ class Game
 {
 public:
     Game();
+
 };
 
 #endif // GAME_H
