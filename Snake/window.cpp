@@ -20,7 +20,7 @@ Window::Window()
     this->createWindow();
 }
 
-Window::Window(sf::Vector2u sz, std::string title)
+Window::Window(sf::Vector2f sz, std::string title)
 {
     this->size = sz;
     this->title = title;

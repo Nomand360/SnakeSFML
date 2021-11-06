@@ -12,7 +12,7 @@ private:
     void destroyWindow();
 public:
     Window();
-    Window(sf::Vector2u sz, std::string title);
+    Window(sf::Vector2f sz, std::string title);
     ~Window();
     void beginDraw();
     void endDeaw();
