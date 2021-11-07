@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game() : window(sf::Vector2f(30.f * block, 20.f * block), "Snake SFML"), snake(15.f)
+Game::Game() : window(sf::Vector2u(30 * block, 20 * block), "Snake SFML"), snake(15)
 {
     srand(time(nullptr));
     this->runGame();

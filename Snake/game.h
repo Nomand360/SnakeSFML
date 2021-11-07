@@ -5,7 +5,7 @@
 #include "snake.h"
 #include "apple.h"
 
-const float block = 16.f;
+const int block = 16;
 
 class Game
 {
