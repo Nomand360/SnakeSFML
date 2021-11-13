@@ -68,3 +68,13 @@ void Snake::renderSnake(sf::RenderWindow &window)
         window.draw(body);
     }
 }
+
+void Snake::checkCollision(const sf::Vector2u &size)
+{
+
+    if(getPos().x >= size.x / blockSize || getPos().y>= size.y / blockSize || getPos().x < 0 || getPos().y < 0){
+        snake.clear();
+        this->setup();
+    }
+
+}

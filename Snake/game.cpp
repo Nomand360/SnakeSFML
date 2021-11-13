@@ -25,6 +25,7 @@ void Game::handleInput()
 void Game::update()
 {
     this->snake.moveSnake();
+    this->snake.checkCollision(window.getWindowSize());
 }
 
 void Game::render()
