@@ -23,6 +23,7 @@ public:
     sf::Vector2f getPos() const;
     void setPos(float x1, float y1);
     void moveSnake();
+    void renderSnake(sf::RenderWindow &window);
 private:
     float blockSize;
     std::vector<Segment> snake;

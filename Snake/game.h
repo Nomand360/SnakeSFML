@@ -10,18 +10,18 @@ const int block = 16;
 class Game
 {
 public:
-    Game();
-    Game(const Game &g) = delete;
-    Game operator=(const Game &g) = delete;
+    Game(); 
     void handleInput();
     void update();
     void render();
     void runGame();
     ~Game();
 private:
+    Game(const Game &g) = delete;
+    Game operator=(const Game &g) = delete;
     Window window;
     Snake snake;
-    sf::Time timeStep;
+    float timeStep;
 
 };
 

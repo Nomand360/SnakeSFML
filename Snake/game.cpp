@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game() : window(sf::Vector2u(30 * block, 20 * block), "Snake SFML"), snake(15)
+Game::Game() : window(sf::Vector2u(30 * block, 20 * block), "Snake SFML"), snake(block), timeStep(0.1f)
 {
     srand(time(nullptr));
     this->runGame();
@@ -24,15 +24,36 @@ void Game::handleInput()
 
 void Game::update()
 {
-
+    this->snake.moveSnake();
 }
 
 void Game::render()
 {
-
+    this->window.beginDraw();
+    this->snake.renderSnake(*this->window.getRenderWindow());
+    this->window.endDeaw();
 }
 
 void Game::runGame()
+{
+    sf::Clock clock;
+    float elapseTime = 0;
+    while (this->window.getRenderWindow()->isOpen()){
+        this->window.update();
+        this->handleInput();
+        float time = clock.getElapsedTime().asSeconds();
+        clock.restart();
+        elapseTime += time;
+        if(elapseTime > timeStep){
+            elapseTime = 0;
+            this->update();
+        }
+        this->render();
+
+    }
+}
+
+Game::~Game()
 {
 
 }

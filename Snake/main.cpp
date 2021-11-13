@@ -1,7 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-
-const int block = 16;
+#include <game.h>
+/*const int block = 16;
 const int N = 30 , M = 20;
 const int weightScreen = N * block;
 const int heightScreen  = M *block;
@@ -53,10 +53,11 @@ void tick(){
             }
     }
 }
-
+*/
 int main()
 
 {
+    /*
     sf::Clock clock;
     float timer = 0, delay = 0.1f;
     sf::RenderWindow window(sf::VideoMode(weightScreen, heightScreen), "SFML Snake");
@@ -115,6 +116,7 @@ int main()
         app.setPosition(f.x * block, f.y * block);
         window.draw(app);
         window.display();
-    }
+    }*/
+    Game game;
     return 0;
 }
