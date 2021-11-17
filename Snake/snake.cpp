@@ -2,9 +2,9 @@
 
 Snake::Snake(float size)
 {
-    this->blockSize = size;
+    this->blockSize = 16;
     this->body.setSize(sf::Vector2f(size, size));
-    this->body.setOutlineThickness(1);
+    this->body.setOutlineThickness(1.f);
     this->body.setOutlineColor(sf::Color::Black);
     this->setup();
 }
@@ -17,10 +17,10 @@ Snake::~Snake()
 void Snake::setup()
 {
     snake.push_back(Segment(5,5));
-    snake.push_back(Segment(5,6));
-    snake.push_back(Segment(5,7));
+    snake.push_back(Segment(4,5));
+    snake.push_back(Segment(3,5));
 
-    setDirection(Direction::None);
+    setDirection(Direction::Right);
 }
 
 void Snake::setDirection(Direction dr)
@@ -76,5 +76,16 @@ void Snake::checkCollision(const sf::Vector2u &size)
         snake.clear();
         this->setup();
     }
+    for(size_t i = 1; i < snake.size(); ++i){
+        if(snake.front().position.x == snake[i].position.x && snake.front().position.y == snake[i].position.y){
+            snake.clear();
+            this->setup();
+        }
+    }
 
+}
+
+void Snake::growSnake()
+{
+    snake.push_back(Segment(snake.back().position.x, snake.back().position.y));
 }

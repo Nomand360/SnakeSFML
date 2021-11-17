@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game() : window(sf::Vector2u(30 * block, 20 * block), "Snake SFML"), snake(block), timeStep(0.1f)
+Game::Game() : window(sf::Vector2u(N * block, M * block), "Snake SFML"), snake(block - 1.f), timeStep(0.1f)
 {
     srand(time(nullptr));
     this->runGame();
@@ -22,16 +22,26 @@ void Game::handleInput()
     }
 }
 
+void Game::eatApple()
+{
+    if(snake.getPos().x == apple.getPosApple().x && snake.getPos().y == apple.getPosApple().y){
+        apple.resetPosition(N, M);
+        snake.growSnake();
+    }
+}
+
 void Game::update()
 {
     this->snake.moveSnake();
     this->snake.checkCollision(window.getWindowSize());
+    this->eatApple();
 }
 
 void Game::render()
 {
     this->window.beginDraw();
     this->snake.renderSnake(*this->window.getRenderWindow());
+    this->apple.renderApple(*this->window.getRenderWindow());
     this->window.endDeaw();
 }
 

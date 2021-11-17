@@ -6,12 +6,15 @@
 #include "apple.h"
 
 const int block = 16;
+const int N = 30;
+const int M = 20;
 
 class Game
 {
 public:
     Game(); 
     void handleInput();
+    void eatApple();
     void update();
     void render();
     void runGame();
@@ -21,6 +24,7 @@ private:
     Game operator=(const Game &g) = delete;
     Window window;
     Snake snake;
+    Apple apple;
     float timeStep;
 
 };

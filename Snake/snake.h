@@ -25,6 +25,7 @@ public:
     void moveSnake();
     void renderSnake(sf::RenderWindow &window);
     void checkCollision(const sf::Vector2u &size);
+    void growSnake();
 private:
     float blockSize;
     std::vector<Segment> snake;
